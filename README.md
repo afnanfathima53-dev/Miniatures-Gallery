@@ -1,0 +1,1 @@
+Miniatures Galley is a showchasing website that lets users to view miniatures made by Afnan Fathima (Myself). Designed to showcase creativity, it provides an immersive view of miniatures with names and images for users.
