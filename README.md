@@ -22,11 +22,4 @@ Designed to highlight creativity, the site provides an immersive experience with
 ## 🛠️ Built With
 - **HTML5**, **CSS3**, **JavaScript**  
 - **[Framework/Library if used, e.g., React, Tailwind, etc.]**  
-- Hosted on **GitHub** / **Netlify**
-
----
-
-## 📥 Installation (for local use)
-1. Clone this repository  
-   ```bash
-   git clone https://github.com/your-username/Miniatures-Gallery.git
+- Hosted on **GitHub**
