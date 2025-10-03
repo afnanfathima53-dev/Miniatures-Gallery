@@ -14,8 +14,7 @@ Designed to highlight creativity, the site provides an immersive experience with
 ---
 
 ## 🚀 Live Demo
-[Visit Miniatures Gallery](https://your-deployed-link.com)  
-*(Replace with your Netlify or GitHub Pages link once deployed)*
+[Visit Miniatures Gallery]((https://afnanfathima53-dev.github.io/Miniatures-Gallery-/))  
 
 ---
 
