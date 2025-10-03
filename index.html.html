@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Miniatures Gallery</title>
+  <style>
+    :root {
+      --main-bg: #ffffff;
+      --main-text: #078876;
+      --header-bg: #72cebb;
+      --footer-bg: #72cebb;
+      --button-bg: #078876;
+      --button-hover: #045f4f;
+      --button-text: white;
+      --active-bg: white;
+      --active-text: #078876;
+      --image-border-radius: 15px;
+    }
+
+    body.dark-mode {
+      --main-bg: #121212;
+      --main-text: #aef0e3;
+      --header-bg: #1e1e1e;
+      --footer-bg: #1e1e1e;
+      --button-bg: #2d2d2d;
+      --button-hover: #3f3f3f;
+      --button-text: #ffffff;
+      --active-bg: #ffffff;
+      --active-text: #078876;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Comic Sans MS", cursive, sans-serif;
+      color: var(--main-text);
+      background-color: var(--main-bg);
+    }
+
+    h1 {
+      color: var(--main-text);
+    }
+
+    .header {
+      padding: 60px;
+      text-align: center;
+      background-color: var(--header-bg);
+      color: white;
+      font-size: 30px;
+    }
+
+    .toggle-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: none;
+      border: 2px solid white;
+      padding: 6px 12px;
+      color: white;
+      font-family: "Comic Sans MS", cursive, sans-serif;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .toggle-btn:hover {
+      background-color: rgba(255, 255, 255, 0.102);
+    }
+
+    .content {
+      padding: 20px;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .footer {
+      width: 100%;
+      background-color: var(--footer-bg);
+      color: var(--main-text);
+      text-align: center;
+      padding: 10px 0;
+      font-family: "Comic Sans MS", cursive, sans-serif;
+    }
+
+    .button {
+      background-color: var(--button-bg);
+      border: none;
+      color: var(--button-text);
+      padding: 12px 28px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 6px;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+      font-family: "Comic Sans MS", cursive, sans-serif;
+    }
+
+    .button:hover {
+      background-color: var(--button-hover);
+      transform: scale(1.05);
+    }
+
+    .button.active {
+      background-color: var(--active-bg);
+      color: var(--active-text);
+      border: 2px solid var(--active-text);
+    }
+
+    .filter-buttons {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      margin: -5px;
+      justify-content: center;
+    }
+
+    .column {
+      flex: 1 0 30%;
+      max-width: 300px;
+      padding: 10px;
+    }
+
+    .column img {
+      width: 100%;
+      height: auto;
+      border-radius: var(--image-border-radius);
+      transition: transform 0.3s ease;
+    }
+
+    .column img:hover {
+      transform: scale(1.05);
+    }
+
+    figcaption {
+      color: var(--main-text);
+      font-family: "Comic Sans MS", cursive, sans-serif;
+      text-align: center;
+      margin-top: 8px;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <h1>Miniatures Gallery</h1>
+  <button class="toggle-btn" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+  <div class="filter-buttons">
+    <button class="button active" onclick="filterSelection('all', event)">All</button>
+    <button class="button" onclick="filterSelection('food', event)">Food</button>
+    <button class="button" onclick="filterSelection('furniture', event)">Furniture & Vintage</button>
+    <button class="button" onclick="filterSelection('technology', event)">Technology & Space</button>
+    <button class="button" onclick="filterSelection('ecology', event)">Nature & Ecology</button>
+  </div>
+</header>
+
+<main class="content">
+  <div class="row">
+
+    <!-- FOOD -->
+    <div class="column" data-category="food">
+      <figure><img src="6.jpg" alt="Miniature Fried Egg"><figcaption>Miniature Fried Egg</figcaption></figure>
+    </div>
+    <div class="column" data-category="food">
+      <figure><img src="5.jpg" alt="Miniature Eggs Carton"><figcaption>Miniature Eggs Carton</figcaption></figure>
+    </div>
+
+    <!-- FURNITURE -->
+    <div class="column" data-category="furniture">
+      <figure><img src="1.jpg" alt="Miniature Room"><figcaption>Miniature Room</figcaption></figure>
+    </div>
+    <div class="column" data-category="furniture">
+      <figure><img src="4.jpg" alt="Miniature Telephone"><figcaption>Miniature Telephone</figcaption></figure>
+    </div>
+    <div class="column" data-category="furniture">
+      <figure><img src="3.jpg" alt="Miniature Amazon Parcel Box"><figcaption>Miniature Amazon Parcel Box</figcaption></figure>
+    </div>
+    <div class="column" data-category="furniture">
+      <figure><img src="10.jpg" alt="Miniature IAS Officer Cabin"><figcaption>Miniature IAS Officer Cabin (Passion Project)</figcaption></figure>
+    </div>
+    <div class="column" data-category="furniture">
+      <figure><img src="13.jpg" alt="Miniature Open House"><figcaption>Miniature Open House</figcaption></figure>
+    </div>
+        <div class="column" data-category="furniture">
+      <figure><img src="7.jpg" alt="Miniature Book"><figcaption>Miniature Vintage Open Book</figcaption></figure>
+    </div>
+    <div class="column" data-category="furniture">
+      <figure><img src="11.jpg" alt="Miniature Calendar"><figcaption>Miniature Paris 2021 Calendar</figcaption></figure>
+    </div>
+    <div class="column" data-category="furniture">
+      <figure><img src="12.jpg" alt="Miniature Library"><figcaption>Miniature Vintage Library</figcaption></figure>
+    </div>
+    <div class="column" data-category="furniture">
+      <figure><img src="15.jpg" alt="Miniature Terrarium"><figcaption>Miniature Terrarium Diroma</figcaption></figure>
+    </div>
+    <div class="column" data-category="furniture">
+      <figure><img src="16.jpg" alt="Miniature Plant"><figcaption>Miniature Snake Plant</figcaption></figure>
+    </div>
+    <div class="column" data-category="furniture">
+      <figure><img src="17.jpg" alt="Miniature Pencil Case"><figcaption>Miniature Colour Pencils Case</figcaption></figure>
+    </div>
+    <div class="column" data-category="furniture">
+      <figure><img src="18.jpg" alt="Miniature Pottery"><figcaption>Miniature Vintage Terracotta Pottery</figcaption></figure>
+    </div>
+    <div class="column" data-category="furniture">
+      <figure><img src="19.jpg" alt="Miniature Brooms"><figcaption>Miniature Brooms</figcaption></figure>
+    </div>
+    <div class="column" data-category="furniture">
+      <figure><img src="20.jpg" alt="Miniature Kitchen"><figcaption>Miniature Kitchen</figcaption></figure>
+    </div>
+    <div class="column" data-category="furniture">
+      <figure><img src="21.jpg" alt="Miniature Pool"><figcaption>Miniature Beach Pool</figcaption></figure>
+    </div>
+    <div class="column" data-category="furniture">
+      <figure><img src="22.jpg" alt="Miniature Pencils"><figcaption>Miniature Faber-Castell Colour Pencils</figcaption></figure>
+    </div>
+    <div class="column" data-category="furniture">
+      <figure><img src="27.jpg" alt="Miniature Cottage"><figcaption>Miniature Lepidopterist's (Butterfly Collector's) Vintage Cottage</figcaption></figure>
+    </div>
+    <div class="column" data-category="furniture">
+      <figure><img src="29.jpg" alt="Miniature Cottage"><figcaption>Miniature Witch's Vintage Room</figcaption></figure>
+    </div>
+
+    <!-- TECHNOLOGY -->
+    <div class="column" data-category="technology">
+      <figure><img src="2.jpg" alt="Miniature PC"><figcaption>Miniature PC (Personal Computer)</figcaption></figure>
+    </div>
+    <div class="column" data-category="technology">
+      <figure><img src="14.jpg" alt="Miniature Headset"><figcaption>Miniature Headset</figcaption></figure>
+    </div>
+    <div class="column" data-category="technology">
+      <figure><img src="8.jpg" alt="Miniature Samsung Galaxy Tab"><figcaption>Miniature Samsung Galaxy Tab S2 Box</figcaption></figure>
+    </div>
+    <div class="column" data-category="technology">
+      <figure><img src="9.jpg" alt="Miniature iPhone Box"><figcaption>Miniature Apple iPhone Box</figcaption></figure>
+    </div>
+    <div class="column" data-category="technology">
+      <figure><img src="28.jpg" alt="Miniature Solar System"><figcaption>Miniature 3D Moveable Solar System</figcaption></figure>
+    </div>
+    <div class="column" data-category="technology">
+      <figure><img src="23.jpg" alt="Miniature Drone"><figcaption>Miniature Drone (Eco Sparks Innovations)</figcaption></figure>
+    </div>
+
+    <!-- ECOLOGY -->
+    <div class="column" data-category="ecology">
+      <figure><img src="25.jpg" alt="Miniature Tree with Grass"><figcaption>Miniature Tree with Green Grass</figcaption></figure>
+    </div>
+    <div class="column" data-category="ecology">
+      <figure><img src="24.jpg" alt="Miniature Eco City"><figcaption>Miniature Ecological Sustainable City</figcaption></figure>
+    </div>
+    <div class="column" data-category="ecology">
+      <figure><img src="26.jpg" alt="Miniature Park"><figcaption>Miniature Ecological Park</figcaption></figure>
+    </div>
+
+  </div>
+</main>
+
+<footer class="footer">
+  &copy; 2025 Miniatures Gallery. All rights reserved.
+</footer>
+
+<script>
+  function filterSelection(category, event) {
+    const columns = document.getElementsByClassName("column");
+    for (let i = 0; i < columns.length; i++) {
+      const col = columns[i];
+      const cat = col.getAttribute("data-category");
+      if (category === "all" || cat === category) {
+        col.classList.remove("hidden");
+      } else {
+        col.classList.add("hidden");
+      }
+    }
+
+    const buttons = document.getElementsByClassName("button");
+    for (let j = 0; j < buttons.length; j++) {
+      buttons[j].classList.remove("active");
+    }
+    event.target.classList.add("active");
+  }
+
+  function toggleDarkMode() {
+    document.body.classList.toggle("dark-mode");
+    localStorage.setItem("theme", document.body.classList.contains("dark-mode") ? "dark" : "light");
+    document.querySelector(".toggle-btn").textContent =
+      document.body.classList.contains("dark-mode") ? "☀️ Light Mode" : "🌙 Dark Mode";
+  }
+
+  // Load theme preference
+  window.onload = function () {
+    if (localStorage.getItem("theme") === "dark") {
+      document.body.classList.add("dark-mode");
+      document.querySelector(".toggle-btn").textContent = "☀️ Light Mode";
+    }
+  };
+</script>
+
+</body>
+</html>
